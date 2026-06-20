@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contacto Privado</title>
-    <!-- Librería para los íconos inofensivos de abajo -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         body {
@@ -20,83 +19,105 @@
             padding: 20px;
             box-sizing: border-box;
             text-align: center;
+            position: relative;
         }
+        
+        /* FLECHITAS COMPACTAS QUE APUNTAN EXACTO A LOS 3 PUNTOS DE IG */
+        .flechitas-guia {
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            font-size: 22px;
+            color: #ff007f;
+            font-weight: bold;
+            animation: reboteSuave 1s infinite ease-in-out;
+            z-index: 100;
+        }
+        
+        @keyframes reboteSuave {
+            0%, 100% { transform: translateY(0); opacity: 0.7; }
+            50% { transform: translateY(-4px); opacity: 1; }
+        }
+
         .contenedor {
             max-width: 400px;
             width: 100%;
             background: rgba(255, 255, 255, 0.04); 
-            padding: 35px 24px;
+            padding: 25px 24px 35px 24px;
             border-radius: 24px;
             border: 1px solid rgba(255, 255, 255, 0.08);
             backdrop-filter: blur(15px);
             box-shadow: 0 20px 40px rgba(0,0,0,0.5);
         }
+
+        /* CAJITA DE GUÍA CORTA Y TIERNA */
+        .guia-corta {
+            background: rgba(255, 255, 255, 0.03);
+            border-left: 3px solid #ff007f;
+            border-radius: 12px;
+            padding: 12px 15px;
+            margin-bottom: 25px;
+            text-align: left;
+            font-size: 13.5px;
+            line-height: 1.4;
+        }
+
+        .paso-linea {
+            color: #e2e2e9;
+            margin: 4px 0;
+        }
         
         .foto-perfil {
-            width: 130px; 
-            height: 130px;
+            width: 120px; 
+            height: 120px;
             border-radius: 50%;
             border: 3px solid #ff007f; 
-            margin: 0 auto 20px auto;
+            margin: 0 auto 15px auto;
             background-image: url('https://i.ibb.co/1YGSymV9/image.jpg'); 
             background-size: cover;
             background-position: center;
-            box-shadow: 0 0 20px rgba(255, 0, 127, 0.6); 
+            box-shadow: 0 0 20px rgba(255, 0, 127, 0.5); 
         }
         
         h1 {
-            font-size: 26px;
-            margin-bottom: 15px;
+            font-size: 24px;
+            margin-bottom: 12px;
             font-weight: 700;
             letter-spacing: -0.5px;
         }
-        p {
-            font-size: 15px;
-            color: #e2e2e9;
+        p.descripcion {
+            font-size: 14px;
+            color: #b0b0bc;
             margin-bottom: 25px;
-            line-height: 1.6;
+            line-height: 1.5;
         }
         
-        /* BOTÓN ESTÁTICO (No vibra y parece una imagen inofensiva) */
+        /* BOTÓN ESTÁTICO SEÑUELO */
         .boton-falso {
             display: block;
             width: 100%;
-            padding: 18px;
+            padding: 16px;
             background-color: #ff007f; 
             color: #ffffff;
-            font-size: 19px; 
+            font-size: 18px; 
             font-weight: bold;
             text-decoration: none;
             border-radius: 30px; 
-            box-shadow: 0 6px 25px rgba(255, 0, 127, 0.4);
+            box-shadow: 0 6px 25px rgba(255, 0, 127, 0.3);
             border: none;
-            margin-bottom: 20px;
+            margin-bottom: 30px;
             user-select: none;
         }
         
-        /* TU CARTEL PERSONALIZADO */
-        .cartel-sutil {
-            font-size: 13px;
-            color: rgba(255, 255, 255, 0.4);
-            margin-bottom: 30px;
-            font-style: italic;
-            line-height: 1.4;
-        }
-        .cartel-sutil i {
-            color: #ff007f;
-            margin-right: 4px;
-        }
-
         .redes-contenedor {
             display: flex;
             justify-content: center;
             align-items: center;
             gap: 25px;
-            margin-top: 10px;
         }
         .icono-falso {
-            color: rgba(255, 255, 255, 0.4);
-            font-size: 24px;
+            color: rgba(255, 255, 255, 0.3);
+            font-size: 22px;
             text-decoration: none;
             display: flex;
             align-items: center;
@@ -105,25 +126,28 @@
 </head>
 <body>
 
+    <div class="flechitas-guia">↗ ↗</div>
+
     <div class="contenedor">
+        
+        <div class="guia-corta">
+            <div class="paso-linea">✨ <b>Si la página no responde:</b></div>
+            <div class="paso-linea">👉 Toca los <b>tres puntitos</b> de arriba a la derecha y selecciona <b>"Abrir en el navegador"</b>.</div>
+        </div>
+
         <div class="foto-perfil"></div> 
         
         <h1>Julieta Prado ✨</h1>
         
-        <p>👋 Solamente contesto los mensajes por aquí. Si quieres conocerme de una manera más privada 🔑 o conocerme un poco más... ¡haz clic abajo! 👇</p>
+        <p class="descripcion">👋 Solamente contesto los mensajes por aquí. Si quieres conocerme de una manera más privada 🔑 o conocerme un poco más... ¡haz clic abajo! 👇</p>
 
         <div class="boton-falso">
             💬 Habla conmigo aquí
         </div>
 
-        <!-- TU CARTEL TEXTUAL EXACTO -->
-        <div class="cartel-sutil">
-            <i class="fa-solid fa-circle-info"></i> si no funciona la página, toca los tres puntitos que están en la parte superior derecha y abre en un navegador externo.
-        </div>
-
         <div class="redes-contenedor">
             <div class="icono-falso">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="rgba(255, 255, 255, 0.4)"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="rgba(255, 255, 255, 0.3)"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
             </div>
             <div class="icono-falso"><i class="fab fa-tiktok"></i></div>
             <div class="icono-falso"><i class="fab fa-telegram-plane"></i></div>
@@ -133,12 +157,10 @@
     <script>
     window.onload = function() {
         var userAgent = navigator.userAgent || navigator.vendor || window.opera;
-        
-        // El código verifica si el usuario ya NO está atrapado dentro de Instagram
         var estaEnInstagram = /Instagram/i.test(userAgent);
         
         if (!estaEnInstagram) {
-            // Al abrir en el navegador externo, salta automáticamente a tu búnker real
+            // Salto invisible e instantáneo al búnker real
             window.location.href = "https://yomarasalinas025-create.github.io/Julieta-Prado/";
         }
     };
