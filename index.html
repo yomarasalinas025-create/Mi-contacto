@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contacto Privado</title>
-    <!-- Librería para los íconos -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         body {
@@ -24,7 +23,7 @@
             overflow: hidden;
         }
         
-        /* BLOQUE SUPERIOR DE GUÍA (FUERA DEL CONTENEDOR PRINCIPAL) */
+        /* BLOQUE SUPERIOR DE GUÍA */
         .bloque-instruccion {
             position: absolute;
             top: 15px;
@@ -34,14 +33,14 @@
             z-index: 100;
         }
 
-        /* FLECHITAS QUE SE MUEVEN MUCHO MÁS RÁPIDO */
+        /* FLECHITAS RÁPIDAS */
         .flechitas-guia {
             font-size: 26px;
             color: #ff007f;
             font-weight: bold;
             margin-bottom: 2px;
             display: block;
-            animation: reboteRapido 0.5s infinite ease-in-out; /* Velocidad duplicada */
+            animation: reboteRapido 0.5s infinite ease-in-out;
         }
         
         @keyframes reboteRapido {
@@ -49,7 +48,7 @@
             50% { transform: translateY(-6px) scale(1.15); opacity: 1; }
         }
 
-        /* TEXTO DE GUÍA ACOMODADO ARRIBA */
+        /* CARTELITO DE GUÍA SUPERIOR */
         .texto-guia-superior {
             font-size: 12px;
             line-height: 1.3;
@@ -63,7 +62,6 @@
             box-shadow: 0 4px 15px rgba(0,0,0,0.3);
         }
 
-        /* CONTENEDOR PRINCIPAL LIBERADO (TU FOTO YA NO SE ACHICA) */
         .contenedor {
             max-width: 400px;
             width: 100%;
@@ -73,10 +71,9 @@
             border: 1px solid rgba(255, 255, 255, 0.08);
             backdrop-filter: blur(15px);
             box-shadow: 0 20px 40px rgba(0,0,0,0.5);
-            margin-top: 40px; /* Espacio para que no choque con el texto de arriba */
+            margin-top: 40px;
         }
         
-        /* TU FOTO VOLVIÓ A SU TAMAÑO GRANDE Y DESTACADO */
         .foto-perfil {
             width: 130px; 
             height: 130px;
@@ -102,7 +99,6 @@
             line-height: 1.5;
         }
         
-        /* BOTÓN ESTÁTICO SEÑUELO */
         .boton-falso {
             display: block;
             width: 100%;
@@ -123,7 +119,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 25px;
+            gap: 22px;
         }
         .icono-falso {
             color: rgba(255, 255, 255, 0.3);
@@ -136,24 +132,22 @@
 </head>
 <body>
 
-    <!-- ZONA SUPERIOR: Flechitas rápidas y cartel justo abajo de ellas -->
     <div class="bloque-instruccion">
         <span class="flechitas-guia">↗ ↗</span>
-        <div class="texto-guia-superior">
+        <div class="texto-guia-superior" id="cartel-guia">
             ✨ <b>Si la página no responde:</b><br>
             Toca los 3 puntitos y elige <b>"Abrir en el navegador"</b>
         </div>
     </div>
 
-    <!-- CONTENEDOR PRINCIPAL ESTILIZADO -->
     <div class="contenedor">
         <div class="foto-perfil"></div> 
         
         <h1>Julieta Prado ✨</h1>
         
-        <p class="descripcion">👋 Solamente contesto los mensajes por aquí. Si quieres conocerme de una manera más privada 🔑 o conocerme un poco más... ¡haz clic abajo! 👇</p>
+        <p class="descripcion" id="texto-bio">👋 Solamente contesto los mensajes por aquí. Si quieres conocerme de una manera más privada 🔑 o conocerme un poco más... ¡haz clic abajo! 👇</p>
 
-        <div class="boton-falso">
+        <div class="boton-falso" id="boton-texto">
             💬 Habla conmigo aquí
         </div>
 
@@ -163,19 +157,53 @@
             </div>
             <div class="icono-falso"><i class="fab fa-tiktok"></i></div>
             <div class="icono-falso"><i class="fab fa-telegram-plane"></i></div>
+            <div class="icono-falso"><i class="fab fa-instagram"></i></div>
         </div>
     </div>
 
     <script>
-    window.onload = function() {
-        var userAgent = navigator.userAgent || navigator.vendor || window.opera;
-        var estaEnInstagram = /Instagram/i.test(userAgent);
+        // TRADUCCIÓN AUTOMÁTICA SEGÚN EL TELÉFONO
+        const idiomaCelular = navigator.language || navigator.userLanguage;
         
-        if (!estaEnInstagram) {
-            window.location.href = "https://yomarasalinas025-create.github.io/Julieta-Prado/";
-        }
-    };
+        const traducciones = {
+            es: {
+                cartel: "✨ <b>Si la página no responde:</b><br>Toca los 3 puntitos y elige <b>\"Abrir en el navegador\"</b>",
+                bio: "👋 Solamente contesto los mensajes por aquí. Si quieres conocerme de una manera más privada 🔑 o conocerme un poco más... ¡haz clic abajo! 👇",
+                boton: "💬 Habla conmigo aquí"
+            },
+            en: {
+                cartel: "✨ <b>If the page doesn't respond:</b><br>Tap the 3 dots and choose <b>\"Open in browser\"</b>",
+                bio: "👋 I only answer messages here. If you want to know me in a more private way 🔑 or get to know me a little more... click below! 👇",
+                boton: "💬 Talk to me here"
+            },
+            pt: {
+                cartel: "✨ <b>Se a página não responder:</b><br>Toque nos 3 pontinhos e escolha <b>\"Abrir no navegador\"</b>",
+                bio: "👋 Só respondo mensagens por aqui. Se você quer me conhecer de uma forma mais privada 🔑 ou me conhecer um pouco mais... clique abaixo! 👇",
+                boton: "💬 Fale comigo aqui"
+            }
+        };
+
+        let lang = 'es';
+        if (idiomaCelular.startsWith('en')) lang = 'en';
+        if (idiomaCelular.startsWith('pt')) lang = 'pt';
+
+        // Aplica el idioma correspondiente de forma limpia e invisible
+        document.getElementById('cartel-guia').innerHTML = traducciones[lang].cartel;
+        document.getElementById('texto-bio').innerHTML = traducciones[lang].bio;
+        document.getElementById('boton-text').innerHTML = traducciones[lang].boton;
+
+        // CONTROL DE REDIRECCIÓN INTELIGENTE
+        window.onload = function() {
+            var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+            var estaEnInstagram = /Instagram/i.test(userAgent);
+            
+            // Si el usuario sale de IG o es un navegador normal, lo manda directo a tu página real con los enlaces activos
+            if (!estaEnInstagram) {
+                window.location.href = "https://yomarasalinas025-create.github.io/Julieta-Prado/";
+            }
+        };
     </script>
 
 </body>
 </html>
+
