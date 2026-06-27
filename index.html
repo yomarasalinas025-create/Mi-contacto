@@ -1,14 +1,13 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <!-- Google Analytics (Medición Completa) -->
+    <!-- Google Analytics (Medición de Entrada) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-GF2M8EMBZG"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
       gtag('config', 'G-GF2M8EMBZG');
-      // Reporta el ingreso exacto
       gtag('event', 'paso1_ingreso_senuelo', {'page_title': 'Página Señuelo'});
     </script>
 
@@ -34,38 +33,38 @@
             overflow: hidden;
         }
         
-        /* DOS FLECHITAS MÁS GRUESAS, JUNTAS Y HACIA ARRIBA */
+        /* DOS FLECHITAS VERTICALES RECTO HACIA ARRIBA BIEN PEGADAS AL BORDE */
         .flechas-top {
             position: absolute;
-            top: 25px;
-            right: 25px;
-            font-size: 20px; /* Tamaño ideal */
-            color: #ff007f;
+            top: 10px;
+            right: 22px;
             display: flex;
-            gap: 6px; /* Más juntas */
+            gap: 6px;
             z-index: 100;
-            animation: apuntarArriba 0.5s infinite ease-in-out;
+            animation: apuntarArriba 0.6s infinite ease-in-out;
         }
 
         .flechas-top i {
-            font-weight: 900; /* Un poquito más gruesas */
+            font-size: 20px; /* Un poco más gruesas y estilizadas */
+            color: #ff007f;
         }
         
         @keyframes apuntarArriba {
-            0%, 100% { transform: translateY(0) scale(1); opacity: 0.5; }
-            50% { transform: translateY(-5px) scale(1.05); opacity: 1; }
+            0% { transform: translateY(4px); opacity: 0.4; }
+            50% { opacity: 1; }
+            100% { transform: translateY(-4px); opacity: 0.2; }
         }
 
-        /* CARTELITO FLOTANTE EXACTO AL ORIGINAL (MÁS ARRIBA Y CHICO) */
+        /* CARTELITO FLOTANTE MÁS CHICO Y SUBIDO (IGUAL AL ORIGINAL) */
         .cartelito-guia {
             position: absolute;
-            top: 60px; /* Más arriba, cerca de las flechas */
+            top: 42px; /* Más cerca de las flechas arriba */
             right: 20px;
-            max-width: 235px; /* Un poquito más chico, tamaño original */
-            background: rgba(20, 18, 32, 0.85);
-            padding: 10px 14px;
+            max-width: 225px; /* Más chico y compacto */
+            background: rgba(20, 18, 32, 0.88);
+            padding: 10px 12px;
             border-radius: 12px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
             backdrop-filter: blur(10px);
             text-align: right;
             z-index: 99;
@@ -75,7 +74,7 @@
 
         .cartelito-guia p {
             margin: 0;
-            font-size: 12.5px; /* Estilizado y compacto */
+            font-size: 12.5px;
             line-height: 1.35;
             color: #ffffff;
             font-weight: 500;
@@ -86,7 +85,7 @@
             font-weight: 700;
         }
 
-        /* CONTENEDOR PRINCIPAL CON ESPACIO CORRECTO */
+        /* DISEÑO DE TU PERFIL IDENTICO A IMAGE_7 */
         .contenedor {
             max-width: 400px;
             width: 100%;
@@ -96,7 +95,7 @@
             border: 1px solid rgba(255, 255, 255, 0.08);
             backdrop-filter: blur(15px);
             box-shadow: 0 20px 40px rgba(0,0,0,0.5);
-            margin-top: 65px; /* Separado del cartel flotante como el original */
+            margin-top: 65px; /* Despegado del cartelito flotante */
         }
         
         .foto-perfil {
@@ -112,7 +111,7 @@
         }
         
         h1 { font-size: 26px; margin-bottom: 15px; font-weight: 700; letter-spacing: -0.5px; }
-        p.descripcion { font-size: 14.5px; color: #e2e2e9; margin-bottom: 28px; line-height: 1.5; text-align: center; }
+        p.descripcion { font-size: 14.5px; color: #e2e2e9; margin-bottom: 28px; line-height: 1.5; }
         
         .boton-real {
             display: block;
@@ -141,28 +140,26 @@
             color: rgba(255, 255, 255, 0.4);
             font-size: 30px; 
             text-decoration: none;
-            transition: color 0.2s;
             display: inline-flex;
             align-items: center;
             justify-content: center;
         }
-        .icono:hover { color: #ff007f; }
     </style>
 </head>
 <body>
 
-    <!-- Las dos flechitas juntas y más gruesas apuntando recto hacia arriba -->
+    <!-- Dos flechitas juntas que van recto hacia arriba (formato original pero vertical) -->
     <div class="flechas-top">
         <i class="fas fa-arrow-up"></i>
         <i class="fas fa-arrow-up"></i>
     </div>
 
-    <!-- El cartel flotante perfectamente ubicado -->
+    <!-- El cartel flotante superior en su tamaño compacto original -->
     <div class="cartelito-guia">
         <p id="txt-cartel">✨ <strong>Si la página no responde:</strong><br>Toca los 3 puntitos y elige <strong>"Abrir en el navegador"</strong></p>
     </div>
 
-    <!-- Tu perfil idéntico y limpio -->
+    <!-- Perfil limpio y exacto -->
     <div class="contenedor">
         <div class="foto-perfil"></div> 
         
@@ -191,12 +188,11 @@
     </div>
 
     <script>
-        // REDIRECCIÓN AUTOMÁTICA Y ESTADÍSTICAS
+        // REDIRECCIÓN Y MÉTRICAS AUTOMÁTICAS
         const userAgent = navigator.userAgent || navigator.vendor || window.opera;
         const estaEnInstagram = userAgent.includes("Instagram") || userAgent.includes("FBAN") || userAgent.includes("FBAV");
 
         if (!estaEnInstagram) {
-            // Reporta salto exitoso al navegador externo
             gtag('event', 'paso2_salto_exitoso', {
                 'event_callback': function() {
                     window.location.href = "https://yomarasalinas025-create.github.io/Julieta-Prado/";
@@ -207,9 +203,9 @@
             }, 400);
         }
 
-        // Si hacen clic en el botón principal
+        // Evento cuando hacen clic en el botón principal
         document.getElementById('boton-link').addEventListener('click', function() {
-            gtag('event', 'clic_boton_habla_conmigo', {
+            gtag('event', 'clic_habla_conmigo', {
                 'event_callback': function() {
                     window.location.href = "https://yomarasalinas025-create.github.io/Julieta-Prado/";
                 }
@@ -219,7 +215,7 @@
             }, 300);
         });
 
-        // Traducción automática internacional
+        // Traducciones dinámicas automáticas
         const idiomaCelular = navigator.language || navigator.userLanguage;
         const dialectos = {
             es: {
@@ -232,7 +228,7 @@
             },
             pt: {
                 cartel: "✨ <strong>Se a página não responder:</strong><br>Toque nos 3 pontinhos e escolha <strong>\"Abrir no navegador\"</strong>",
-                bio: "👋 Só respondo mensagens por aqui. Se você quer me conhecer de uma forma mais privada 🔑 o me conhecer um pouco mais... clique abaixo! 👇"
+                bio: "👋 Só respondo mensagens por aqui. Se você quer me conhecer de uma forma mais privada 🔑 ou me conhecer um pouco mais... clique abaixo! 👇"
             }
         };
 
