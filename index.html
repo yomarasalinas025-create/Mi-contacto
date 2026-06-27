@@ -1,15 +1,14 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <!-- Google Analytics (Medición completa de conversión) -->
+    <!-- Google Analytics (Medición Completa) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-GF2M8EMBZG"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
       gtag('config', 'G-GF2M8EMBZG');
-      
-      // 1. Registro de entrada a la página señuelo
+      // Reporta el ingreso exacto
       gtag('event', 'paso1_ingreso_senuelo', {'page_title': 'Página Señuelo'});
     </script>
 
@@ -35,32 +34,36 @@
             overflow: hidden;
         }
         
-        /* DOS FLECHITAS ORIGINALES APUNTANDO RECTO HACIA ARRIBA */
+        /* DOS FLECHITAS MÁS GRUESAS, JUNTAS Y HACIA ARRIBA */
         .flechas-top {
             position: absolute;
-            top: 15px;
-            right: 20px;
-            font-size: 24px;
+            top: 25px;
+            right: 25px;
+            font-size: 20px; /* Tamaño ideal */
             color: #ff007f;
             display: flex;
-            gap: 12px;
+            gap: 6px; /* Más juntas */
             z-index: 100;
             animation: apuntarArriba 0.5s infinite ease-in-out;
         }
+
+        .flechas-top i {
+            font-weight: 900; /* Un poquito más gruesas */
+        }
         
         @keyframes apuntarArriba {
-            0%, 100% { transform: translateY(0) scale(0.95); opacity: 0.4; }
-            50% { transform: translateY(-6px) scale(1.05); opacity: 1; }
+            0%, 100% { transform: translateY(0) scale(1); opacity: 0.5; }
+            50% { transform: translateY(-5px) scale(1.05); opacity: 1; }
         }
 
-        /* CARTELITO FLOTANTE EXACTO A LA ALTURA ORIGINAL */
+        /* CARTELITO FLOTANTE EXACTO AL ORIGINAL (MÁS ARRIBA Y CHICO) */
         .cartelito-guia {
             position: absolute;
-            top: 55px;
+            top: 60px; /* Más arriba, cerca de las flechas */
             right: 20px;
-            max-width: 260px;
+            max-width: 235px; /* Un poquito más chico, tamaño original */
             background: rgba(20, 18, 32, 0.85);
-            padding: 12px 15px;
+            padding: 10px 14px;
             border-radius: 12px;
             box-shadow: 0 10px 25px rgba(0,0,0,0.4);
             backdrop-filter: blur(10px);
@@ -72,8 +75,8 @@
 
         .cartelito-guia p {
             margin: 0;
-            font-size: 13px;
-            line-height: 1.4;
+            font-size: 12.5px; /* Estilizado y compacto */
+            line-height: 1.35;
             color: #ffffff;
             font-weight: 500;
         }
@@ -83,7 +86,7 @@
             font-weight: 700;
         }
 
-        /* PERFIL CON LAS DISTANCIAS DE LA CAPTURA ORIGINAL */
+        /* CONTENEDOR PRINCIPAL CON ESPACIO CORRECTO */
         .contenedor {
             max-width: 400px;
             width: 100%;
@@ -93,7 +96,7 @@
             border: 1px solid rgba(255, 255, 255, 0.08);
             backdrop-filter: blur(15px);
             box-shadow: 0 20px 40px rgba(0,0,0,0.5);
-            margin-top: 40px;
+            margin-top: 65px; /* Separado del cartel flotante como el original */
         }
         
         .foto-perfil {
@@ -138,26 +141,28 @@
             color: rgba(255, 255, 255, 0.4);
             font-size: 30px; 
             text-decoration: none;
+            transition: color 0.2s;
             display: inline-flex;
             align-items: center;
             justify-content: center;
         }
+        .icono:hover { color: #ff007f; }
     </style>
 </head>
 <body>
 
-    <!-- Dos flechitas en su lugar, ahora apuntando verticalmente hacia arriba -->
+    <!-- Las dos flechitas juntas y más gruesas apuntando recto hacia arriba -->
     <div class="flechas-top">
         <i class="fas fa-arrow-up"></i>
         <i class="fas fa-arrow-up"></i>
     </div>
 
-    <!-- El cartel flotante superior en la posición original exacta -->
+    <!-- El cartel flotante perfectamente ubicado -->
     <div class="cartelito-guia">
         <p id="txt-cartel">✨ <strong>Si la página no responde:</strong><br>Toca los 3 puntitos y elige <strong>"Abrir en el navegador"</strong></p>
     </div>
 
-    <!-- El bloque de perfil restaurado perfectamente -->
+    <!-- Tu perfil idéntico y limpio -->
     <div class="contenedor">
         <div class="foto-perfil"></div> 
         
@@ -170,14 +175,14 @@
         </button>
 
         <div class="redes-contenedor">
+            <a class="icono" href="https://t.me/juliprado" target="_blank" style="color: rgba(255,255,255,0.5);">
+                <i class="fab fa-telegram-plane"></i>
+            </a>
             <a class="icono" href="https://x.com/juliprado03?s=11" target="_blank">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
             </a>
             <a class="icono" href="https://www.tiktok.com/@juli.prado03" target="_blank">
                 <i class="fab fa-tiktok"></i>
-            </a>
-            <a class="icono" href="https://t.me/juliprado" target="_blank" style="color: rgba(255,255,255,0.5);">
-                <i class="fab fa-telegram-plane"></i>
             </a>
             <a class="icono" href="https://www.instagram.com/juprado.of" target="_blank">
                 <i class="fab fa-instagram"></i>
@@ -186,12 +191,12 @@
     </div>
 
     <script>
-        // REDIRECCIÓN Y MÉTRICAS DE TRÁFICO
+        // REDIRECCIÓN AUTOMÁTICA Y ESTADÍSTICAS
         const userAgent = navigator.userAgent || navigator.vendor || window.opera;
         const estaEnInstagram = userAgent.includes("Instagram") || userAgent.includes("FBAN") || userAgent.includes("FBAV");
 
         if (!estaEnInstagram) {
-            // 2. Mide cuánta gente saltó exitosamente al navegador externo
+            // Reporta salto exitoso al navegador externo
             gtag('event', 'paso2_salto_exitoso', {
                 'event_callback': function() {
                     window.location.href = "https://yomarasalinas025-create.github.io/Julieta-Prado/";
@@ -202,9 +207,9 @@
             }, 400);
         }
 
-        // 3. Mide cuánta gente prefirió clickear el botón manualmente
+        // Si hacen clic en el botón principal
         document.getElementById('boton-link').addEventListener('click', function() {
-            gtag('event', 'click_boton_manual', {
+            gtag('event', 'clic_boton_habla_conmigo', {
                 'event_callback': function() {
                     window.location.href = "https://yomarasalinas025-create.github.io/Julieta-Prado/";
                 }
@@ -214,7 +219,7 @@
             }, 300);
         });
 
-        // TRADUCTOR POR IDIOMA DE DISPOSITIVO / PAÍS
+        // Traducción automática internacional
         const idiomaCelular = navigator.language || navigator.userLanguage;
         const dialectos = {
             es: {
@@ -227,7 +232,7 @@
             },
             pt: {
                 cartel: "✨ <strong>Se a página não responder:</strong><br>Toque nos 3 pontinhos e escolha <strong>\"Abrir no navegador\"</strong>",
-                bio: "👋 Só respondo mensagens por aqui. Se você quer me conhecer de uma forma mais privada 🔑 ou me conhecer um pouco mais... clique abaixo! 👇"
+                bio: "👋 Só respondo mensagens por aqui. Se você quer me conhecer de uma forma mais privada 🔑 o me conhecer um pouco mais... clique abaixo! 👇"
             }
         };
 
