@@ -1,23 +1,24 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+    <!-- Google Analytics (Medición de Entrada) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-GF2M8EMBZG"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
       gtag('config', 'G-GF2M8EMBZG');
-      // Evento automático: Entró al señuelo
+      // Reporta el ingreso exacto a la página señuelo
       gtag('event', 'paso1_ingreso_senuelo', {'page_title': 'Página Señuelo'});
     </script>
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contacto</title>
+    <title>Julieta Prado</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         body {
-            background-color: #0d0e15;
+            background: linear-gradient(135deg, #0f0c20 0%, #060608 100%);
             color: #ffffff;
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
             display: flex;
@@ -29,127 +30,210 @@
             padding: 20px;
             box-sizing: border-box;
             text-align: center;
+            position: relative;
+            overflow: hidden;
         }
-        .alerta-navegador {
+        
+        /* FLECHITAS FUCSIAS TITILANDO RÁPIDO */
+        .flechas-top {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 26px;
+            color: #ff007f;
+            display: flex;
+            gap: 4px;
+            z-index: 100;
+            animation: titilarRapido 0.5s infinite ease-in-out;
+        }
+        
+        @keyframes titilarRapido {
+            0%, 100__% { opacity: 0.3; transform: scale(0.95); }
+            50% { opacity: 1; transform: scale(1.1); }
+        }
+
+        /* CARTELITO FLOTANTE SUPERIOR */
+        .cartelito-guia {
+            position: absolute;
+            top: 55px;
+            right: 20px;
+            max-width: 260px;
+            background: rgba(20, 18, 32, 0.85);
+            border-right: 4px solid #ff007f;
+            padding: 12px 15px;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+            backdrop-filter: blur(10px);
+            text-align: right;
+            z-index: 99;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-right: 4px solid #ff007f;
+        }
+
+        .cartelito-guia p {
+            margin: 0;
+            font-size: 13px;
+            line-height: 1.4;
+            color: #ffffff;
+            font-weight: 500;
+        }
+
+        .cartelito-guia strong {
+            color: #ffffff;
+            font-weight: 700;
+        }
+
+        /* DISEÑO DE TU PERFIL IDENTICO */
+        .contenedor {
             max-width: 400px;
             width: 100%;
-            background: rgba(255, 255, 255, 0.03);
-            padding: 30px 20px;
-            border-radius: 20px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.04); 
+            padding: 35px 24px;
+            border-radius: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(15px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+            margin-top: 40px;
         }
-        .icono-guia {
-            font-size: 45px;
-            color: #ff007f;
-            margin-bottom: 15px;
-            animation: flotar 2s infinite ease-in-out;
-        }
-        @keyframes flotar {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-8px); }
-        }
-        h2 { font-size: 22px; margin-bottom: 12px; font-weight: 600; }
-        p { font-size: 15px; color: #b0b3c6; line-height: 1.6; margin-bottom: 0; }
-        .pasos {
-            text-align: left;
-            background: rgba(0, 0, 0, 0.2);
-            padding: 15px 20px;
-            border-radius: 12px;
-            margin-top: 20px;
-        }
-        .paso-item {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-bottom: 10px;
-            font-size: 14.5px;
-        }
-        .paso-item:last-child { margin-bottom: 0; }
-        .numero {
-            background: #ff007f;
-            color: white;
-            width: 22px;
-            height: 22px;
+        
+        .foto-perfil {
+            width: 130px; 
+            height: 130px;
             border-radius: 50%;
+            border: 3px solid #ff007f; 
+            margin: 0 auto 20px auto;
+            background-image: url('https://i.ibb.co/1YGSymV9/image.jpg'); 
+            background-size: cover;
+            background-position: center;
+            box-shadow: 0 0 20px rgba(255, 0, 127, 0.5); 
+        }
+        
+        h1 { font-size: 26px; margin-bottom: 15px; font-weight: 700; letter-spacing: -0.5px; }
+        p.descripcion { font-size: 14.5px; color: #e2e2e9; margin-bottom: 28px; line-height: 1.5; text-align: center; }
+        
+        .boton-real {
+            display: block;
+            width: 100%;
+            padding: 17px;
+            background-color: #ff007f; 
+            color: #ffffff;
+            font-size: 19px; 
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 30px; 
+            box-shadow: 0 6px 25px rgba(255, 0, 127, 0.3);
+            border: none;
+            margin-bottom: 35px;
+            cursor: pointer;
+        }
+        
+        .redes-contenedor {
             display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 26px; 
+        }
+        
+        /* ICONOS MAS GRANDES */
+        .icono {
+            color: rgba(255, 255, 255, 0.4);
+            font-size: 30px; 
+            text-decoration: none;
+            transition: color 0.2s;
+            display: inline-flex;
             align-items: center;
             justify-content: center;
-            font-size: 12px;
-            font-weight: bold;
         }
+        .icono:hover { color: #ff007f; }
     </style>
 </head>
 <body>
 
-    <div class="alerta-navegador">
-        <div class="icono-guia">
-            <i class="fas fa-compass"></i>
-        </div>
-        <h2 id="titulo-alerta">Abrir en el navegador</h2>
-        <p id="desc-alerta">Para proteger tu privacidad y asegurar una conexión segura, por favor abre este enlace en tu navegador externo.</p>
+    <!-- Las flechitas fucsias titilando hacia los 3 puntitos -->
+    <div class="flechas-top">
+        <i class="fas fa-arrow-up" style="transform: rotate(45deg);"></i>
+        <i class="fas fa-arrow-up" style="transform: rotate(45deg);"></i>
+    </div>
+
+    <!-- El cartel flotante tal cual la captura -->
+    <div class="cartelito-guia">
+        <p id="txt-cartel">✨ <strong>Si la página no responde:</strong><br>Toca los 3 puntitos y elige "Abrir en el navegador"</p>
+    </div>
+
+    <!-- Tu perfil idéntico -->
+    <div class="contenedor">
+        <div class="foto-perfil"></div> 
         
-        <div class="pasos">
-            <div class="paso-item">
-                <div class="numero">1</div>
-                <span id="paso1-text">Toca los 3 puntitos (右上角 / •••) arriba.</span>
-            </div>
-            <div class="paso-item">
-                <div class="numero">2</div>
-                <span id="paso2-text">Selecciona "Abrir en el navegador".</span>
-            </div>
+        <h1>Julieta Prado ✨</h1>
+        
+        <p class="descripcion" id="texto-bio">👋 Solamente contesto los mensajes por aquí. Si quieres conocerme de una manera más privada 🔑 o conocerme un poco más... ¡haz clic abajo! 👇</p>
+
+        <button class="boton-real" id="boton-link">
+            💬 Habla conmigo aquí
+        </button>
+
+        <div class="redes-contenedor">
+            <!-- TELEGRAM ADELANTE DE TODO -->
+            <a class="icono" href="https://t.me/juliprado" target="_blank" style="color: rgba(255,255,255,0.5);">
+                <i class="fab fa-telegram-plane"></i>
+            </a>
+            <a class="icono" href="https://x.com/juliprado03?s=11" target="_blank">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+            <a class="icono" href="https://www.tiktok.com/@juli.prado03" target="_blank">
+                <i class="fab fa-tiktok"></i>
+            </a>
+            <a class="icono" href="https://www.instagram.com/juprado.of" target="_blank">
+                <i class="fab fa-instagram"></i>
+            </a>
         </div>
     </div>
 
     <script>
-        // REDIRECCIÓN AUTOMÁTICA AFUERA DE INSTAGRAM (Deep Link)
+        // REDIRECCIÓN AUTOMÁTICA AL NAVEGADOR EXTERNO
         const userAgent = navigator.userAgent || navigator.vendor || window.opera;
         const estaEnInstagram = userAgent.includes("Instagram") || userAgent.includes("FBAN") || userAgent.includes("FBAV");
 
         if (!estaEnInstagram) {
-            // Mandar evento a Google indicando que el salto fue exitoso (Paso 2)
+            // Reporta que salieron con éxito al navegador externo (Paso 2)
             gtag('event', 'paso2_salto_exitoso', {
                 'event_callback': function() {
                     window.location.href = "https://yomarasalinas025-create.github.io/Julieta-Prado/";
                 }
             });
-            // Resguardo por si Google tarda en responder
             setTimeout(function() {
                 window.location.href = "https://yomarasalinas025-create.github.io/Julieta-Prado/";
             }, 400);
         }
 
-        // TRADUCTOR MULTI-IDIOMA AUTOMÁTICO
+        // Si hacen clic en el botón antes de salir, igual intenta mandarlos a la página real
+        document.getElementById('boton-link').addEventListener('click', function() {
+            window.location.href = "https://yomarasalinas025-create.github.io/Julieta-Prado/";
+        });
+
+        // Traducción automática manteniendo tu mismo estilo e intenciones
         const idiomaCelular = navigator.language || navigator.userLanguage;
-        const traducciones = {
+        const dialectos = {
             es: {
-                titulo: "Abrir en el navegador",
-                desc: "Para proteger tu privacidad y asegurar una conexión segura, por favor abre este enlace en tu navegador externo.",
-                p1: "Toca los 3 puntitos (•••) arriba a la derecha.",
-                p2: "Selecciona 'Abrir en el navegador'."
+                cartel: "✨ <strong>Si la página no responde:</strong><br>Toca los 3 puntitos y elige \"Abrir en el navegador\"",
+                bio: "👋 Solamente contesto los mensajes por aquí. Si quieres conocerme de una manera más privada 🔑 o conocerme un poco más... ¡haz clic abajo! 👇"
             },
             en: {
-                titulo: "Open in Browser",
-                desc: "To protect your privacy and ensure a secure connection, please open this link in your external browser.",
-                p1: "Tap the 3 dots (•••) at the top right.",
-                p2: "Select 'Open in browser'."
+                cartel: "✨ <strong>If the page doesn't respond:</strong><br>Tap the 3 dots and choose \"Open in browser\"",
+                bio: "👋 I only answer messages here. If you want to know me in a more private way 🔑 or get to know me a little more... click below! 👇"
             },
             pt: {
-                titulo: "Abrir no navegador",
-                desc: "Para proteger sua privacidade e garantir uma conexão segura, abra este link no seu navegador externo.",
-                p1: "Toque nos 3 pontinhos (•••) no canto superior direito.",
-                p2: "Selecione 'Abrir no navegador'."
+                cartel: "✨ <strong>Se a página não responder:</strong><br>Toque nos 3 pontinhos e escolha \"Abrir no navegador\"",
+                bio: "👋 Só respondo mensagens por aqui. Se você quer me conhecer de uma forma mais privada 🔑 ou me conhecer um pouco mais... clique abaixo! 👇"
             }
         };
 
-        let lang = 'es';
-        if (idiomaCelular.startsWith('en')) lang = 'en';
-        if (idiomaCelular.startsWith('pt')) lang = 'pt';
+        let lng = 'es';
+        if (idiomaCelular.startsWith('en')) lng = 'en';
+        if (idiomaCelular.startsWith('pt')) lng = 'pt';
 
-        document.getElementById('titulo-alerta').innerText = traducciones[lang].titulo;
-        document.getElementById('desc-alerta').innerText = traducciones[lang].desc;
-        document.getElementById('paso1-text').innerText = traducciones[lang].p1;
-        document.getElementById('paso2-text').innerText = traducciones[lang].p2;
+        document.getElementById('txt-cartel').innerHTML = dialectos[lng].cartel;
+        document.getElementById('texto-bio').innerHTML = dialectos[lng].bio;
     </script>
 
 </body>
