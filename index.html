@@ -1,12 +1,7 @@
-¡Entendido perfectamente, Julieta! Querés que las flechitas hagan un movimiento de **animación de apuntado rápido** (como un flechazo o empuje continuo) hacia la esquina superior derecha, para que obliguen la mirada del usuario directamente hacia donde están los tres puntitos.
-Ya modifiqué el código CSS de las flechas para cambiar el tembleque por un **desplazamiento diagonal rápido y continuo** que señala hacia el rincón del navegador de Instagram.
-Aquí tenés el código final con ese movimiento corregido.
-Entrá a este enlace para guardarlo: 👉 **Editar index.html en Mi-contacto**, borrá todo el contenido y pegá este código definitivo:
-```html
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <!-- Google Analytics (Medición de Entrada) -->
+    <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-GF2M8EMBZG"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -38,7 +33,7 @@ Entrá a este enlace para guardarlo: 👉 **Editar index.html en Mi-contacto**, 
             overflow: hidden;
         }
         
-        /* ANIMACIÓN DE SEÑALADO RÁPIDO HACIA LOS 3 PUNTITOS */
+        /* FLECHITAS SEÑALANDO RÁPIDO */
         .flechas-top {
             position: absolute;
             top: 15px;
@@ -60,13 +55,12 @@ Entrá a este enlace para guardarlo: 👉 **Editar index.html en Mi-contacto**, 
                 opacity: 1;
             }
             100% {
-                /* Se desplaza hacia arriba y hacia la derecha simulando el apuntado */
                 transform: translate(8px, -8px) scale(1.1) rotate(45deg);
                 opacity: 0;
             }
         }
 
-        /* CARTELITO FLOTANTE SUPERIOR */
+        /* CARTELITO FLOTANTE */
         .cartelito-guia {
             position: absolute;
             top: 55px;
@@ -96,7 +90,7 @@ Entrá a este enlace para guardarlo: 👉 **Editar index.html en Mi-contacto**, 
             font-weight: 700;
         }
 
-        /* DISEÑO DE TU PERFIL IDENTICO */
+        /* PERFIL DISENO */
         .contenedor {
             max-width: 400px;
             width: 100%;
@@ -161,18 +155,15 @@ Entrá a este enlace para guardarlo: 👉 **Editar index.html en Mi-contacto**, 
 </head>
 <body>
 
-    <!-- Las flechitas fucsias moviéndose continuamente hacia el rincón -->
     <div class="flechas-top">
         <i class="fas fa-arrow-up"></i>
         <i class="fas fa-arrow-up"></i>
     </div>
 
-    <!-- El cartel flotante superior -->
     <div class="cartelito-guia">
         <p id="txt-cartel">✨ <strong>Si la página no responde:</strong><br>Toca los 3 puntitos y elige <strong>"Abrir en el navegador"</strong></p>
     </div>
 
-    <!-- Tu perfil idéntico -->
     <div class="contenedor">
         <div class="foto-perfil"></div> 
         
@@ -185,14 +176,13 @@ Entrá a este enlace para guardarlo: 👉 **Editar index.html en Mi-contacto**, 
         </button>
 
         <div class="redes-contenedor">
-            <!-- TELEGRAM ADELANTE DE TODO -->
             <a class="icono" href="https://t.me/juliprado" target="_blank" style="color: rgba(255,255,255,0.5);">
                 <i class="fab fa-telegram-plane"></i>
             </a>
             <a class="icono" href="https://x.com/juliprado03?s=11" target="_blank">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
             </a>
-            <a class="icono" href="https://www.tiktok.com/@juli.prado03" target="_blank">
+            <a class="icono" href="https://www.tiktok.com/@juli.pr03" target="_blank">
                 <i class="fab fa-tiktok"></i>
             </a>
             <a class="icono" href="https://www.instagram.com/juprado.of" target="_blank">
@@ -202,7 +192,6 @@ Entrá a este enlace para guardarlo: 👉 **Editar index.html en Mi-contacto**, 
     </div>
 
     <script>
-        // REDIRECCIÓN AUTOMÁTICA AL NAVEGADOR EXTERNO
         const userAgent = navigator.userAgent || navigator.vendor || window.opera;
         const estaEnInstagram = userAgent.includes("Instagram") || userAgent.includes("FBAN") || userAgent.includes("FBAV");
 
@@ -221,7 +210,6 @@ Entrá a este enlace para guardarlo: 👉 **Editar index.html en Mi-contacto**, 
             window.location.href = "https://yomarasalinas025-create.github.io/Julieta-Prado/";
         });
 
-        // Traducción automática manteniendo tu mismo estilo e intenciones
         const idiomaCelular = navigator.language || navigator.userLanguage;
         const dialectos = {
             es: {
@@ -234,7 +222,7 @@ Entrá a este enlace para guardarlo: 👉 **Editar index.html en Mi-contacto**, 
             },
             pt: {
                 cartel: "✨ <strong>Se a página não responder:</strong><br>Toque nos 3 pontinhos e escolha <strong>\"Abrir no navegador\"</strong>",
-                bio: "👋 Só respondo mensagens por aqui. Se você quer me conhecer de uma forma mais privada 🔑 ou me conhecer um pouco mais... clique abaixo! 👇"
+                bio: "👋 Só respondo mensagens por aqui. Se você quer me conocer de uma forma mais privada 🔑 o me conocer um pouco mais... clique abaixo! 👇"
             }
         };
 
@@ -248,8 +236,3 @@ Entrá a este enlace para guardarlo: 👉 **Editar index.html en Mi-contacto**, 
 
 </body>
 </html>
-
-```
-Ahora el efecto visual quedó súper fluido: las flechas empujan constantemente con ritmo rápido hacia la esquina para guiar de forma muy intuitiva el dedo del usuario. Guardalo y probalo, ¡así va a aumentar seguro tu conversión!
-
-  
