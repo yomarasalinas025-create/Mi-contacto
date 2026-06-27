@@ -1,13 +1,23 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GF2M8EMBZG"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-GF2M8EMBZG');
+      // Evento automático: Entró al señuelo
+      gtag('event', 'paso1_ingreso_senuelo', {'page_title': 'Página Señuelo'});
+    </script>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contacto Privado</title>
+    <title>Contacto</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         body {
-            background: linear-gradient(135deg, #0f0c20 0%, #060608 100%);
+            background-color: #0d0e15;
             color: #ffffff;
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
             display: flex;
@@ -19,167 +29,116 @@
             padding: 20px;
             box-sizing: border-box;
             text-align: center;
-            position: relative;
-            overflow: hidden;
         }
-        
-        /* BLOQUE SUPERIOR DE GUÍA */
-        .bloque-instruccion {
-            position: absolute;
-            top: 15px;
-            right: 20px;
-            max-width: 260px;
-            text-align: right;
-            z-index: 100;
-        }
-
-        /* FLECHITAS RÁPIDAS */
-        .flechitas-guia {
-            font-size: 26px;
-            color: #ff007f;
-            font-weight: bold;
-            margin-bottom: 2px;
-            display: block;
-            animation: reboteRapido 0.5s infinite ease-in-out;
-        }
-        
-        @keyframes reboteRapido {
-            0%, 100% { transform: translateY(0) scale(1); opacity: 0.8; }
-            50% { transform: translateY(-6px) scale(1.15); opacity: 1; }
-        }
-
-        /* CARTELITO DE GUÍA SUPERIOR */
-        .texto-guia-superior {
-            font-size: 12px;
-            line-height: 1.3;
-            color: rgba(255, 255, 255, 0.8);
-            background: rgba(255, 255, 255, 0.05);
-            padding: 8px 12px;
-            border-radius: 10px;
-            border-right: 2px solid #ff007f;
-            backdrop-filter: blur(5px);
-            text-align: right;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-        }
-
-        .contenedor {
+        .alerta-navegador {
             max-width: 400px;
             width: 100%;
-            background: rgba(255, 255, 255, 0.04); 
-            padding: 35px 24px;
-            border-radius: 24px;
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            backdrop-filter: blur(15px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
-            margin-top: 40px;
+            background: rgba(255, 255, 255, 0.03);
+            padding: 30px 20px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
         }
-        
-        .foto-perfil {
-            width: 130px; 
-            height: 130px;
-            border-radius: 50%;
-            border: 3px solid #ff007f; 
-            margin: 0 auto 20px auto;
-            background-image: url('https://i.ibb.co/1YGSymV9/image.jpg'); 
-            background-size: cover;
-            background-position: center;
-            box-shadow: 0 0 20px rgba(255, 0, 127, 0.5); 
-        }
-        
-        h1 {
-            font-size: 26px;
+        .icono-guia {
+            font-size: 45px;
+            color: #ff007f;
             margin-bottom: 15px;
-            font-weight: 700;
-            letter-spacing: -0.5px;
+            animation: flotar 2s infinite ease-in-out;
         }
-        p.descripcion {
+        @keyframes flotar {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
+        }
+        h2 { font-size: 22px; margin-bottom: 12px; font-weight: 600; }
+        p { font-size: 15px; color: #b0b3c6; line-height: 1.6; margin-bottom: 0; }
+        .pasos {
+            text-align: left;
+            background: rgba(0, 0, 0, 0.2);
+            padding: 15px 20px;
+            border-radius: 12px;
+            margin-top: 20px;
+        }
+        .paso-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
             font-size: 14.5px;
-            color: #e2e2e9;
-            margin-bottom: 28px;
-            line-height: 1.5;
         }
-        
-        .boton-falso {
-            display: block;
-            width: 100%;
-            padding: 17px;
-            background-color: #ff007f; 
-            color: #ffffff;
-            font-size: 19px; 
-            font-weight: bold;
-            text-decoration: none;
-            border-radius: 30px; 
-            box-shadow: 0 6px 25px rgba(255, 0, 127, 0.3);
-            border: none;
-            margin-bottom: 30px;
-            user-select: none;
-        }
-        
-        .redes-contenedor {
+        .paso-item:last-child { margin-bottom: 0; }
+        .numero {
+            background: #ff007f;
+            color: white;
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
             display: flex;
+            align-items: center;
             justify-content: center;
-            align-items: center;
-            gap: 22px;
-        }
-        .icono-falso {
-            color: rgba(255, 255, 255, 0.3);
-            font-size: 22px;
-            text-decoration: none;
-            display: flex;
-            align-items: center;
+            font-size: 12px;
+            font-weight: bold;
         }
     </style>
 </head>
 <body>
 
-    <div class="bloque-instruccion">
-        <span class="flechitas-guia">↗ ↗</span>
-        <div class="texto-guia-superior" id="cartel-guia">
-            ✨ <b>Si la página no responde:</b><br>
-            Toca los 3 puntitos y elige <b>"Abrir en el navegador"</b>
+    <div class="alerta-navegador">
+        <div class="icono-guia">
+            <i class="fas fa-compass"></i>
         </div>
-    </div>
-
-    <div class="contenedor">
-        <div class="foto-perfil"></div> 
+        <h2 id="titulo-alerta">Abrir en el navegador</h2>
+        <p id="desc-alerta">Para proteger tu privacidad y asegurar una conexión segura, por favor abre este enlace en tu navegador externo.</p>
         
-        <h1>Julieta Prado ✨</h1>
-        
-        <p class="descripcion" id="texto-bio">👋 Solamente contesto los mensajes por aquí. Si quieres conocerme de una manera más privada 🔑 o conocerme un poco más... ¡haz clic abajo! 👇</p>
-
-        <div class="boton-falso" id="boton-texto">
-            💬 Habla conmigo aquí
-        </div>
-
-        <div class="redes-contenedor">
-            <div class="icono-falso">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="rgba(255, 255, 255, 0.3)"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        <div class="pasos">
+            <div class="paso-item">
+                <div class="numero">1</div>
+                <span id="paso1-text">Toca los 3 puntitos (右上角 / •••) arriba.</span>
             </div>
-            <div class="icono-falso"><i class="fab fa-tiktok"></i></div>
-            <div class="icono-falso"><i class="fab fa-telegram-plane"></i></div>
-            <div class="icono-falso"><i class="fab fa-instagram"></i></div>
+            <div class="paso-item">
+                <div class="numero">2</div>
+                <span id="paso2-text">Selecciona "Abrir en el navegador".</span>
+            </div>
         </div>
     </div>
 
     <script>
-        // TRADUCCIÓN AUTOMÁTICA SEGÚN EL TELÉFONO
+        // REDIRECCIÓN AUTOMÁTICA AFUERA DE INSTAGRAM (Deep Link)
+        const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+        const estaEnInstagram = userAgent.includes("Instagram") || userAgent.includes("FBAN") || userAgent.includes("FBAV");
+
+        if (!estaEnInstagram) {
+            // Mandar evento a Google indicando que el salto fue exitoso (Paso 2)
+            gtag('event', 'paso2_salto_exitoso', {
+                'event_callback': function() {
+                    window.location.href = "https://yomarasalinas025-create.github.io/Julieta-Prado/";
+                }
+            });
+            // Resguardo por si Google tarda en responder
+            setTimeout(function() {
+                window.location.href = "https://yomarasalinas025-create.github.io/Julieta-Prado/";
+            }, 400);
+        }
+
+        // TRADUCTOR MULTI-IDIOMA AUTOMÁTICO
         const idiomaCelular = navigator.language || navigator.userLanguage;
-        
         const traducciones = {
             es: {
-                cartel: "✨ <b>Si la página no responde:</b><br>Toca los 3 puntitos y elige <b>\"Abrir en el navegador\"</b>",
-                bio: "👋 Solamente contesto los mensajes por aquí. Si quieres conocerme de una manera más privada 🔑 o conocerme un poco más... ¡haz clic abajo! 👇",
-                boton: "💬 Habla conmigo aquí"
+                titulo: "Abrir en el navegador",
+                desc: "Para proteger tu privacidad y asegurar una conexión segura, por favor abre este enlace en tu navegador externo.",
+                p1: "Toca los 3 puntitos (•••) arriba a la derecha.",
+                p2: "Selecciona 'Abrir en el navegador'."
             },
             en: {
-                cartel: "✨ <b>If the page doesn't respond:</b><br>Tap the 3 dots and choose <b>\"Open in browser\"</b>",
-                bio: "👋 I only answer messages here. If you want to know me in a more private way 🔑 or get to know me a little more... click below! 👇",
-                boton: "💬 Talk to me here"
+                titulo: "Open in Browser",
+                desc: "To protect your privacy and ensure a secure connection, please open this link in your external browser.",
+                p1: "Tap the 3 dots (•••) at the top right.",
+                p2: "Select 'Open in browser'."
             },
             pt: {
-                cartel: "✨ <b>Se a página não responder:</b><br>Toque nos 3 pontinhos e escolha <b>\"Abrir no navegador\"</b>",
-                bio: "👋 Só respondo mensagens por aqui. Se você quer me conhecer de uma forma mais privada 🔑 ou me conhecer um pouco mais... clique abaixo! 👇",
-                boton: "💬 Fale comigo aqui"
+                titulo: "Abrir no navegador",
+                desc: "Para proteger sua privacidade e garantir uma conexão segura, abra este link no seu navegador externo.",
+                p1: "Toque nos 3 pontinhos (•••) no canto superior direito.",
+                p2: "Selecione 'Abrir no navegador'."
             }
         };
 
@@ -187,21 +146,10 @@
         if (idiomaCelular.startsWith('en')) lang = 'en';
         if (idiomaCelular.startsWith('pt')) lang = 'pt';
 
-        // Aplica el idioma correspondiente de forma limpia e invisible
-        document.getElementById('cartel-guia').innerHTML = traducciones[lang].cartel;
-        document.getElementById('texto-bio').innerHTML = traducciones[lang].bio;
-        document.getElementById('boton-texto').innerHTML = traducciones[lang].boton;
-
-        // CONTROL DE REDIRECCIÓN INTELIGENTE
-        window.onload = function() {
-            var userAgent = navigator.userAgent || navigator.vendor || window.opera;
-            var estaEnInstagram = /Instagram/i.test(userAgent);
-            
-            // Si el usuario sale de IG o es un navegador normal, lo manda directo a tu página real
-            if (!estaEnInstagram) {
-                window.location.href = "https://yomarasalinas025-create.github.io/Julieta-Prado/";
-            }
-        };
+        document.getElementById('titulo-alerta').innerText = traducciones[lang].titulo;
+        document.getElementById('desc-alerta').innerText = traducciones[lang].desc;
+        document.getElementById('paso1-text').innerText = traducciones[lang].p1;
+        document.getElementById('paso2-text').innerText = traducciones[lang].p2;
     </script>
 
 </body>
