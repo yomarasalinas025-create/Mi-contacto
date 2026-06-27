@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <!-- Google Analytics (Medición de Entrada) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-GF2M8EMBZG"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -48,7 +47,7 @@
         }
         
         @keyframes titilarRapido {
-            0%, 100__% { opacity: 0.3; transform: scale(0.95); }
+            0%, 100% { opacity: 0.3; transform: scale(0.95); }
             50% { opacity: 1; transform: scale(1.1); }
         }
 
@@ -59,7 +58,6 @@
             right: 20px;
             max-width: 260px;
             background: rgba(20, 18, 32, 0.85);
-            border-right: 4px solid #ff007f;
             padding: 12px 15px;
             border-radius: 12px;
             box-shadow: 0 10px 25px rgba(0,0,0,0.4);
@@ -149,18 +147,15 @@
 </head>
 <body>
 
-    <!-- Las flechitas fucsias titilando hacia los 3 puntitos -->
     <div class="flechas-top">
         <i class="fas fa-arrow-up" style="transform: rotate(45deg);"></i>
         <i class="fas fa-arrow-up" style="transform: rotate(45deg);"></i>
     </div>
 
-    <!-- El cartel flotante tal cual la captura -->
     <div class="cartelito-guia">
-        <p id="txt-cartel">✨ <strong>Si la página no responde:</strong><br>Toca los 3 puntitos y elige "Abrir en el navegador"</p>
+        <p id="txt-cartel">✨ <strong>Si la página no responde:</strong><br>Toca los 3 puntitos y elige <strong>"Abrir en el navegador"</strong></p>
     </div>
 
-    <!-- Tu perfil idéntico -->
     <div class="contenedor">
         <div class="foto-perfil"></div> 
         
@@ -173,7 +168,6 @@
         </button>
 
         <div class="redes-contenedor">
-            <!-- TELEGRAM ADELANTE DE TODO -->
             <a class="icono" href="https://t.me/juliprado" target="_blank" style="color: rgba(255,255,255,0.5);">
                 <i class="fab fa-telegram-plane"></i>
             </a>
@@ -215,15 +209,15 @@
         const idiomaCelular = navigator.language || navigator.userLanguage;
         const dialectos = {
             es: {
-                cartel: "✨ <strong>Si la página no responde:</strong><br>Toca los 3 puntitos y elige \"Abrir en el navegador\"",
+                cartel: "✨ <strong>Si la página no responde:</strong><br>Toca los 3 puntitos y elige <strong>\"Abrir en el navegador\"</strong>",
                 bio: "👋 Solamente contesto los mensajes por aquí. Si quieres conocerme de una manera más privada 🔑 o conocerme un poco más... ¡haz clic abajo! 👇"
             },
             en: {
-                cartel: "✨ <strong>If the page doesn't respond:</strong><br>Tap the 3 dots and choose \"Open in browser\"",
+                cartel: "✨ <strong>If the page doesn't respond:</strong><br>Tap the 3 dots and choose <strong>\"Open in browser\"</strong>",
                 bio: "👋 I only answer messages here. If you want to know me in a more private way 🔑 or get to know me a little more... click below! 👇"
             },
             pt: {
-                cartel: "✨ <strong>Se a página não responder:</strong><br>Toque nos 3 pontinhos e escolha \"Abrir no navegador\"",
+                cartel: "✨ <strong>Se a página não responder:</strong><br>Toque nos 3 pontinhos e escolha <strong>\"Abrir no navegador\"</strong>",
                 bio: "👋 Só respondo mensagens por aqui. Se você quer me conhecer de uma forma mais privada 🔑 ou me conhecer um pouco mais... clique abaixo! 👇"
             }
         };
