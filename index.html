@@ -1,13 +1,18 @@
+¡Entendido perfectamente, Julieta! Querés que las flechitas hagan un movimiento de **animación de apuntado rápido** (como un flechazo o empuje continuo) hacia la esquina superior derecha, para que obliguen la mirada del usuario directamente hacia donde están los tres puntitos.
+Ya modifiqué el código CSS de las flechas para cambiar el tembleque por un **desplazamiento diagonal rápido y continuo** que señala hacia el rincón del navegador de Instagram.
+Aquí tenés el código final con ese movimiento corregido.
+Entrá a este enlace para guardarlo: 👉 **Editar index.html en Mi-contacto**, borrá todo el contenido y pegá este código definitivo:
+```html
 <!DOCTYPE html>
 <html lang="es">
 <head>
+    <!-- Google Analytics (Medición de Entrada) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-GF2M8EMBZG"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
       gtag('config', 'G-GF2M8EMBZG');
-      // Reporta el ingreso exacto a la página señuelo
       gtag('event', 'paso1_ingreso_senuelo', {'page_title': 'Página Señuelo'});
     </script>
 
@@ -33,7 +38,7 @@
             overflow: hidden;
         }
         
-        /* FLECHITAS FUCSIAS TITILANDO RÁPIDO */
+        /* ANIMACIÓN DE SEÑALADO RÁPIDO HACIA LOS 3 PUNTITOS */
         .flechas-top {
             position: absolute;
             top: 15px;
@@ -43,12 +48,22 @@
             display: flex;
             gap: 4px;
             z-index: 100;
-            animation: titilarRapido 0.5s infinite ease-in-out;
+            animation: apuntarRapido 0.6s infinite linear;
         }
         
-        @keyframes titilarRapido {
-            0%, 100% { opacity: 0.3; transform: scale(0.95); }
-            50% { opacity: 1; transform: scale(1.1); }
+        @keyframes apuntarRapido {
+            0% {
+                transform: translate(0, 0) scale(0.9) rotate(45deg);
+                opacity: 0.4;
+            }
+            50% {
+                opacity: 1;
+            }
+            100% {
+                /* Se desplaza hacia arriba y hacia la derecha simulando el apuntado */
+                transform: translate(8px, -8px) scale(1.1) rotate(45deg);
+                opacity: 0;
+            }
         }
 
         /* CARTELITO FLOTANTE SUPERIOR */
@@ -132,7 +147,6 @@
             gap: 26px; 
         }
         
-        /* ICONOS MAS GRANDES */
         .icono {
             color: rgba(255, 255, 255, 0.4);
             font-size: 30px; 
@@ -147,15 +161,18 @@
 </head>
 <body>
 
+    <!-- Las flechitas fucsias moviéndose continuamente hacia el rincón -->
     <div class="flechas-top">
-        <i class="fas fa-arrow-up" style="transform: rotate(45deg);"></i>
-        <i class="fas fa-arrow-up" style="transform: rotate(45deg);"></i>
+        <i class="fas fa-arrow-up"></i>
+        <i class="fas fa-arrow-up"></i>
     </div>
 
+    <!-- El cartel flotante superior -->
     <div class="cartelito-guia">
         <p id="txt-cartel">✨ <strong>Si la página no responde:</strong><br>Toca los 3 puntitos y elige <strong>"Abrir en el navegador"</strong></p>
     </div>
 
+    <!-- Tu perfil idéntico -->
     <div class="contenedor">
         <div class="foto-perfil"></div> 
         
@@ -168,6 +185,7 @@
         </button>
 
         <div class="redes-contenedor">
+            <!-- TELEGRAM ADELANTE DE TODO -->
             <a class="icono" href="https://t.me/juliprado" target="_blank" style="color: rgba(255,255,255,0.5);">
                 <i class="fab fa-telegram-plane"></i>
             </a>
@@ -189,7 +207,6 @@
         const estaEnInstagram = userAgent.includes("Instagram") || userAgent.includes("FBAN") || userAgent.includes("FBAV");
 
         if (!estaEnInstagram) {
-            // Reporta que salieron con éxito al navegador externo (Paso 2)
             gtag('event', 'paso2_salto_exitoso', {
                 'event_callback': function() {
                     window.location.href = "https://yomarasalinas025-create.github.io/Julieta-Prado/";
@@ -200,7 +217,6 @@
             }, 400);
         }
 
-        // Si hacen clic en el botón antes de salir, igual intenta mandarlos a la página real
         document.getElementById('boton-link').addEventListener('click', function() {
             window.location.href = "https://yomarasalinas025-create.github.io/Julieta-Prado/";
         });
@@ -232,3 +248,8 @@
 
 </body>
 </html>
+
+```
+Ahora el efecto visual quedó súper fluido: las flechas empujan constantemente con ritmo rápido hacia la esquina para guiar de forma muy intuitiva el dedo del usuario. Guardalo y probalo, ¡así va a aumentar seguro tu conversión!
+
+  
