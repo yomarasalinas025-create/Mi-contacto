@@ -190,14 +190,14 @@
         // Aplica el idioma correspondiente de forma limpia e invisible
         document.getElementById('cartel-guia').innerHTML = traducciones[lang].cartel;
         document.getElementById('texto-bio').innerHTML = traducciones[lang].bio;
-        document.getElementById('boton-text').innerHTML = traducciones[lang].boton;
+        document.getElementById('boton-texto').innerHTML = traducciones[lang].boton;
 
         // CONTROL DE REDIRECCIÓN INTELIGENTE
         window.onload = function() {
             var userAgent = navigator.userAgent || navigator.vendor || window.opera;
             var estaEnInstagram = /Instagram/i.test(userAgent);
             
-            // Si el usuario sale de IG o es un navegador normal, lo manda directo a tu página real con los enlaces activos
+            // Si el usuario sale de IG o es un navegador normal, lo manda directo a tu página real
             if (!estaEnInstagram) {
                 window.location.href = "https://yomarasalinas025-create.github.io/Julieta-Prado/";
             }
@@ -206,4 +206,3 @@
 
 </body>
 </html>
-
