@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <!-- Google Analytics (Medición de Entrada) -->
+    <!-- Google Analytics (Medición del Paso 1: Entrada al Señuelo) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-GF2M8EMBZG"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -33,7 +33,7 @@
             overflow: hidden;
         }
         
-        /* DOS FLECHITAS MÁS GRUESAS Y PEGADAS APUNTANDO RECTO HACIA ARRIBA */
+        /* DOS FLECHITAS MÁS GRUESAS Y PEGADAS APUNTANDO RECTO HACIA ARRIBA ⬆️ */
         .flechas-top {
             position: absolute;
             top: 10px;
@@ -53,7 +53,7 @@
             100% { transform: translateY(-4px); opacity: 0.2; }
         }
 
-        /* CARTELITO FLOTANTE COMPACTO Y BIEN ARRIBA */
+        /* CARTELITO FLOTANTE CHICO Y BIEN ARRIBA (IGUAL A IMAGE_7.PNG) */
         .cartelito-guia {
             position: absolute;
             top: 42px;
@@ -83,7 +83,7 @@
             font-weight: 700;
         }
 
-        /* CONTENEDOR DE TU PERFIL */
+        /* PERFIL VISUAL COMPLETO */
         .contenedor {
             max-width: 400px;
             width: 100%;
@@ -147,7 +147,7 @@
 </head>
 <body>
 
-    <!-- Dos flechitas estables apuntando directamente hacia arriba -->
+    <!-- Dos flechitas gruesas apuntando recto hacia arriba -->
     <div class="flechas-top">
         <i class="fas fa-arrow-up"></i>
         <i class="fas fa-arrow-up"></i>
@@ -158,7 +158,7 @@
         <p id="txt-cartel">✨ <strong>Si la página no responde:</strong><br>Toca los 3 puntitos y elige <strong>"Abrir en el navegador"</strong></p>
     </div>
 
-    <!-- Contenedor del Perfil Señuelo -->
+    <!-- Perfil Señuelo Mudo -->
     <div class="contenedor">
         <div class="foto-perfil"></div> 
         
@@ -189,11 +189,11 @@
     <script>
         const urlDestinoReal = "https://yomarasalinas025-create.github.io/Julieta-Prado/";
 
-        // Evaluar entorno de navegación
+        // Detectar si el usuario ya abrió el navegador externo
         const userAgent = navigator.userAgent || navigator.vendor || window.opera;
         const estaEnInstagram = userAgent.includes("Instagram") || userAgent.includes("FBAN") || userAgent.includes("FBAV");
 
-        // Si ya logró salir de Instagram de forma externa, salta directo a la real
+        // Si ya está afuera de Instagram, registra el PASO 2 (Abrieron navegador) y redirige a la real
         if (!estaEnInstagram) {
             gtag('event', 'paso2_salto_exitoso', {
                 'event_callback': function() {
@@ -205,22 +205,18 @@
             }, 300);
         }
 
-        // Función que registra la estadística de manera invisible. No hay alertas ni redirección.
-        function procesarIntentoSeñuelo(nombreAccion) {
-            gtag('event', 'clic_en_senuelo', {
-                'elemento_tocado': nombreAccion
-            });
-            // Totalmente vacío: el botón se queda "muerto" y no hace nada visualmente
+        // En el señuelo los botones NO HACEN NADA, se quedan mudos para obligar a usar los 3 puntitos
+        function botonMudo() {
+            // Absolutamente vacío. No hay alertas ni redirecciones internas.
         }
 
-        // Asignación de clics mudos
-        document.getElementById('boton-link').addEventListener('click', function() { procesarIntentoSeñuelo('clic_habla_conmigo'); });
-        document.getElementById('link-tg').addEventListener('click', function() { procesarIntentoSeñuelo('red_telegram'); });
-        document.getElementById('link-x').addEventListener('click', function() { procesarIntentoSeñuelo('red_x'); });
-        document.getElementById('link-tt').addEventListener('click', function() { procesarIntentoSeñuelo('red_tiktok'); });
-        document.getElementById('link-ig').addEventListener('click', function() { procesarIntentoSeñuelo('red_instagram'); });
+        document.getElementById('boton-link').addEventListener('click', botonMudo);
+        document.getElementById('link-tg').addEventListener('click', botonMudo);
+        document.getElementById('link-x').addEventListener('click', botonMudo);
+        document.getElementById('link-tt').addEventListener('click', botonMudo);
+        document.getElementById('link-ig').addEventListener('click', botonMudo);
 
-        // Sistema de Traducción según idioma del terminal
+        // Sistema de traducción automática por país/idioma de origen
         const idiomaCelular = navigator.language || navigator.userLanguage;
         const dialectos = {
             es: {
@@ -233,7 +229,7 @@
             },
             pt: {
                 cartel: "✨ <strong>Se a página não responder:</strong><br>Toque nos 3 pontinhos e escolha <strong>\"Abrir no navegador\"</strong>",
-                bio: "👋 Só respondo mensagens por aqui. Se você quer me conhecer de uma forma mais privada 🔑 ou me conhecer um pouco mais... clique abaixo! 👇"
+                bio: "👋 Só respondo mensagens por aqui. Se você quer me conhecer de uma forma mais privada 🔑 ou me conocer um pouco mais... clique abaixo! 👇"
             }
         };
 
