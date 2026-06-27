@@ -33,35 +33,33 @@
             overflow: hidden;
         }
         
-        /* DOS FLECHITAS VERTICALES RECTO HACIA ARRIBA BIEN PEGADAS AL BORDE */
+        /* DOS FLECHITAS MÁS GRUESAS Y PEGADAS APUNTANDO RECTO HACIA ARRIBA */
         .flechas-top {
             position: absolute;
             top: 10px;
-            right: 22px;
+            right: 15px;
+            font-size: 24px;
+            color: #ff007f;
             display: flex;
             gap: 6px;
             z-index: 100;
-            animation: apuntarArriba 0.6s infinite ease-in-out;
-        }
-
-        .flechas-top i {
-            font-size: 20px; /* Un poco más gruesas y estilizadas */
-            color: #ff007f;
+            font-weight: 900; /* Hace las flechas un poco más gruesas */
+            animation: apuntarArriba 0.5s infinite ease-in-out;
         }
         
         @keyframes apuntarArriba {
-            0% { transform: translateY(4px); opacity: 0.4; }
+            0% { transform: translateY(4px); opacity: 0.5; }
             50% { opacity: 1; }
             100% { transform: translateY(-4px); opacity: 0.2; }
         }
 
-        /* CARTELITO FLOTANTE MÁS CHICO Y SUBIDO (IGUAL AL ORIGINAL) */
+        /* CARTELITO FLOTANTE MÁS CHICO Y BIEN ARRIBA (COMO ANTES) */
         .cartelito-guia {
             position: absolute;
-            top: 42px; /* Más cerca de las flechas arriba */
-            right: 20px;
-            max-width: 225px; /* Más chico y compacto */
-            background: rgba(20, 18, 32, 0.88);
+            top: 42px;
+            right: 15px;
+            max-width: 235px; /* Un poco más compacto */
+            background: rgba(20, 18, 32, 0.9);
             padding: 10px 12px;
             border-radius: 12px;
             box-shadow: 0 10px 25px rgba(0,0,0,0.5);
@@ -74,7 +72,7 @@
 
         .cartelito-guia p {
             margin: 0;
-            font-size: 12.5px;
+            font-size: 12px;
             line-height: 1.35;
             color: #ffffff;
             font-weight: 500;
@@ -85,7 +83,7 @@
             font-weight: 700;
         }
 
-        /* DISEÑO DE TU PERFIL IDENTICO A IMAGE_7 */
+        /* DISEÑO DE TU PERFIL IDENTICO */
         .contenedor {
             max-width: 400px;
             width: 100%;
@@ -95,7 +93,7 @@
             border: 1px solid rgba(255, 255, 255, 0.08);
             backdrop-filter: blur(15px);
             box-shadow: 0 20px 40px rgba(0,0,0,0.5);
-            margin-top: 65px; /* Despegado del cartelito flotante */
+            margin-top: 65px; /* Despega el perfil del cartel superior */
         }
         
         .foto-perfil {
@@ -111,7 +109,7 @@
         }
         
         h1 { font-size: 26px; margin-bottom: 15px; font-weight: 700; letter-spacing: -0.5px; }
-        p.descripcion { font-size: 14.5px; color: #e2e2e9; margin-bottom: 28px; line-height: 1.5; }
+        p.descripcion { font-size: 14.5px; color: #e2e2e9; margin-bottom: 28px; line-height: 1.5; text-align: center; }
         
         .boton-real {
             display: block;
@@ -143,23 +141,24 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
+            cursor: pointer;
         }
     </style>
 </head>
 <body>
 
-    <!-- Dos flechitas juntas que van recto hacia arriba (formato original pero vertical) -->
+    <!-- Dos flechitas estables apuntando directamente hacia arriba -->
     <div class="flechas-top">
         <i class="fas fa-arrow-up"></i>
         <i class="fas fa-arrow-up"></i>
     </div>
 
-    <!-- El cartel flotante superior en su tamaño compacto original -->
+    <!-- El cartel flotante superior corregido en tamaño y posición -->
     <div class="cartelito-guia">
         <p id="txt-cartel">✨ <strong>Si la página no responde:</strong><br>Toca los 3 puntitos y elige <strong>"Abrir en el navegador"</strong></p>
     </div>
 
-    <!-- Perfil limpio y exacto -->
+    <!-- Contenedor del Perfil Señuelo -->
     <div class="contenedor">
         <div class="foto-perfil"></div> 
         
@@ -172,50 +171,61 @@
         </button>
 
         <div class="redes-contenedor">
-            <a class="icono" href="https://t.me/juliprado" target="_blank" style="color: rgba(255,255,255,0.5);">
+            <a class="icono" id="link-tg" style="color: rgba(255,255,255,0.5);">
                 <i class="fab fa-telegram-plane"></i>
             </a>
-            <a class="icono" href="https://x.com/juliprado03?s=11" target="_blank">
+            <a class="icono" id="link-x">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
             </a>
-            <a class="icono" href="https://www.tiktok.com/@juli.prado03" target="_blank">
+            <a class="icono" id="link-tt">
                 <i class="fab fa-tiktok"></i>
             </a>
-            <a class="icono" href="https://www.instagram.com/juprado.of" target="_blank">
+            <a class="icono" id="link-ig">
                 <i class="fab fa-instagram"></i>
             </a>
         </div>
     </div>
 
     <script>
-        // REDIRECCIÓN Y MÉTRICAS AUTOMÁTICAS
+        const urlDestinoReal = "https://yomarasalinas025-create.github.io/Julieta-Prado/";
+
+        // Evaluar entorno de navegación
         const userAgent = navigator.userAgent || navigator.vendor || window.opera;
         const estaEnInstagram = userAgent.includes("Instagram") || userAgent.includes("FBAN") || userAgent.includes("FBAV");
 
+        // Si ya logró salir de Instagram, redirige directo a la página verdadera
         if (!estaEnInstagram) {
             gtag('event', 'paso2_salto_exitoso', {
                 'event_callback': function() {
-                    window.location.href = "https://yomarasalinas025-create.github.io/Julieta-Prado/";
+                    window.location.href = urlDestinoReal;
                 }
             });
             setTimeout(function() {
-                window.location.href = "https://yomarasalinas025-create.github.io/Julieta-Prado/";
-            }, 400);
+                window.location.href = urlDestinoReal;
+            }, 300);
         }
 
-        // Evento cuando hacen clic en el botón principal
-        document.getElementById('boton-link').addEventListener('click', function() {
-            gtag('event', 'clic_habla_conmigo', {
+        // Función unificada para registrar clics e indicar el uso de los tres puntitos
+        function procesarIntentoSeñuelo(nombreAccion) {
+            gtag('event', 'clic_en_senuelo', {
+                'elemento_tocado': nombreAccion,
                 'event_callback': function() {
-                    window.location.href = "https://yomarasalinas025-create.github.io/Julieta-Prado/";
+                    // En la página señuelo los botones no deben llevar a ningún lado externo directamente si sigue en Instagram
+                    alert("Por favor, usa la indicación de arriba: toca los 3 puntitos y selecciona 'Abrir en el navegador' para acceder.");
                 }
             });
-            setTimeout(function() {
-                window.location.href = "https://yomarasalinas025-create.github.io/Julieta-Prado/";
-            }, 300);
-        });
+        }
 
-        // Traducciones dinámicas automáticas
+        // Asignación de eventos preventivos para que ningún botón saque de la app sin los 3 puntitos
+        document.getElementById('boton-link').addEventListener('click', function() {
+            procesarIntentoSeñuelo('clic_habla_conmigo');
+        });
+        document.getElementById('link-tg').addEventListener('click', function() { procesarIntentoSeñuelo('red_telegram'); });
+        document.getElementById('link-x').addEventListener('click', function() { procesarIntentoSeñuelo('red_x'); });
+        document.getElementById('link-tt').addEventListener('click', function() { procesarIntentoSeñuelo('red_tiktok'); });
+        document.getElementById('link-ig').addEventListener('click', function() { procesarIntentoSeñuelo('red_instagram'); });
+
+        // Sistema de Traducción según idioma del terminal
         const idiomaCelular = navigator.language || navigator.userLanguage;
         const dialectos = {
             es: {
